@@ -22,6 +22,8 @@ Errores del código original:
 - Condiciones que son siempre verdaderas como (a > 0 || a < 6).
 - El método _obtenerUltimoEspacio(...)_ es redundante porque el método _opa(...)_ puede hacer la misma funcionalidad con cambiar la lógica del _return_.
 - La funcionalidad de mostrar la cantidad de personas de tercera edad es redundante, ya que no es necesario comprobar el estado civil de la persona.
+- En los for para contar no tiene contemplado la posibilidad de un archivo null, por lo tanto, es probable que haya errores en caso que hayan espacios vacíos en la matriz.
+- 
 
 ## Tareas:
 - Martín: Operaciones 4, 5 y menú.
