@@ -51,37 +51,45 @@ public class taller2 {
         return string;
     }
 
-    // nombre / estado / edad
-
-    public static void mostrarCantidadDeAdultoMayor (Object[][] registro) {
-        System.out.println("La cantidad de adultos mayor es " + cantidadAdultoMayor(registro));
-    }
+    // Funciones para cantidad de adulto mayores
 
     public static int cantidadAdultoMayor (Object[][] registro) {
         int cantidadDeAdultosMayores = 0;
-        for (int i = 0; i < registro.length; i++) {
-            if ((int) registro[i][2] >= 65) { // en el codigo original considera 60 y 65, nosotros vamos a considerar 65
-                cantidadDeAdultosMayores++;
+        for (Object[] objects : registro) { // primero chequea que no sea null, y despues cuenta.
+            if (objects[2] != null) {
+                if ((int) objects[2] >= 65) { // en el codigo original considera 60 y 65, nosotros vamos a considerar 65
+                    cantidadDeAdultosMayores++;
+                }
             }
         }
         return cantidadDeAdultosMayores;
     }
 
+    public static void mostrarCantidadDeAdultoMayor (Object[][] registro) {
+        System.out.println("La cantidad de adultos mayor es " + cantidadAdultoMayor(registro)); // imprime solamente la cantidad
+    }
+
     public static int cantidadDeSolteros (Object[][] registro) {
         int cantidadDeSolteros = 0;
-        for (int i = 0; i < registro.length; i++) {
-            if (registro[i][1].equals("Soltero/a")){
-                cantidadDeSolteros++;
+        for (Object[] objects : registro) {
+            if (objects[2] != null) { // chequea que no sea null y cuenta
+                if (objects[1].equals("Soltero/a")) {
+                    cantidadDeSolteros++;
+                }
             }
         }
         return cantidadDeSolteros;
     }
 
+    // Funciones para cantidad de casados y solteros.
+
     public static int cantidadDeCasados (Object[][] registro) {
         int cantidadDeCasados = 0;
-        for (int i = 0; i < registro.length; i++) {
-            if (registro[i][1].equals("Casado/a")){
-                cantidadDeCasados++;
+        for (Object[] objects : registro) {
+            if (objects[2] != null) { //chequea que no sea null y cuenta
+                if (objects[1].equals("Casado/a")) {
+                    cantidadDeCasados++;
+                }
             }
         }
         return cantidadDeCasados;
@@ -89,7 +97,7 @@ public class taller2 {
 
     public static void mostrarCantidadDePersonasPorEstadoCivil(Object[][] registro) {
         System.out.println("La cantidad de solteros es de " + cantidadDeSolteros(registro) + " solteros.");
-        System.out.println("La cantidad de casados es de " + cantidadDeCasados(registro) + " casados.");
+        System.out.println("La cantidad de casados es de " + cantidadDeCasados(registro) + " casados."); // muestra en pantalla los valores de solteros y casados
     }
 
     //Función imprimir opciones del menú.
@@ -106,7 +114,6 @@ public class taller2 {
     //Función de ejecutar las opciones del menú.
     public static void ejecutarOpciones(Object[][] matriz, int opcion){
         if (opcion == 1) {
-            mostrarCantidadDeAdultoMayor(matriz);
         } else if (opcion == 2) {
         } else if (opcion == 3) {
         } else if (opcion == 4) {
@@ -120,7 +127,6 @@ public class taller2 {
 
     //Función menú.
     public static void menu(Object[][] matriz){
-
         while(true){
             mostrarOpciones();
             int opcion = leerOpcionLimitada("Ingrese el número de la opción que desea seleccionar: ",1,6);
