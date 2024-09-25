@@ -7,15 +7,22 @@ import static org.junit.jupiter.api.Assertions.*;
 class taller2Test {
 
     Object [][] registro = new Object[50][3];
+    Object [][] registroPruebas = new Object[50][3];
 
     @BeforeEach
     void setUp() {
         System.out.println("Preparando la matriz para una prueba...");
+        // Lopez
         registro[0] = new Object[]{"Persona1","Soltero/a",26};
         registro[1] = new Object[]{"Persona2","Casado/a",14};
         registro[2] = new Object[]{"Persona3","Soltero/a",38};
         registro[3] = new Object[]{"Persona4","Casado/a",18};
         registro[4] = new Object[]{"Persona5","Soltero/a",17};
+        //Carrasco
+        registroPruebas[0] = new Object[]{"Martin", "Casado/a", 20};
+        registroPruebas[1] = new Object[]{"Sabrina", "Casado/a", 20};
+        registroPruebas[2] = new Object[]{"Emilio", "Soltero/a", 70};
+        registroPruebas[3] = new Object[]{"David", "Casado/a", 100};
     }
 
     @AfterEach
@@ -66,6 +73,21 @@ class taller2Test {
     @Test
     void cantidadMenoresDeEdad() {
         assertEquals(2,taller2.cantidadMenoresDeEdad(registro));
+    }
+
+    @Test
+    void cantidadAdultoMayor() {
+        assertEquals(2, taller2.cantidadAdultoMayor(registroPruebas));
+    }
+
+    @Test
+    void cantidadDeSolteros() {
+        assertEquals(1, taller2.cantidadDeSolteros(registroPruebas));
+    }
+
+    @Test
+    void cantidadDeCasados() {
+        assertEquals(3, taller2.cantidadDeCasados(registroPruebas));
     }
 
 }
