@@ -123,7 +123,7 @@ public class taller2 {
     public static int cantidadMayoresDeEdad(Object[][] registro){
         int contador = 0;
         for (int i = 0; i < registro.length; i++) {
-            if((!registro[i][0].equals("")) && ((Integer) registro[i][2] <= 18)){
+            if((registro[i][0] != null) && ((Integer) registro[i][2] >= 18)){
             contador++;
             }
         }
@@ -138,7 +138,7 @@ public class taller2 {
     public static int cantidadMenoresDeEdad(Object[][] registro){
         int contador = 0;
         for (int i = 0; i < registro.length; i++) {
-            if((!registro[i][0].equals("")) && ((Integer) registro[i][2] > 18)){
+            if((registro[i][0] != null) && ((Integer) registro[i][2] < 18)){
                 contador++;
             }
         }
@@ -165,9 +165,9 @@ public class taller2 {
         if (opcion == 1) { //agregar
             String nombre = pedirString("Ingrese el nombre: ");
             agregarPersonas(matriz,nombre);
-        } else if (opcion == 2) { //mayores
+        } else if (opcion == 2) { //mayores de edad
             mostrarMayoresDeEdad(matriz);
-        } else if (opcion == 3) { //menores
+        } else if (opcion == 3) { //menores de edad.
             mostrarMenoresDeEdad(matriz);
         } else if (opcion == 4) {
         } else if (opcion == 5) {
